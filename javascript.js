@@ -1,7 +1,6 @@
 const sizeOfGrid = 16;
 const container = document.querySelector(".container")
 
-
 const createGrid = (amountOfGrids) => {
     for (let i = 0; i<amountOfGrids; i++) {
         const row = document.createElement("div")
@@ -13,6 +12,10 @@ const createGrid = (amountOfGrids) => {
             gridBox.classList.add("grid-box")
             gridBox.style.width = `${widthAndHeight}px`
             gridBox.style.height = `${widthAndHeight}px`
+
+            gridBox.addEventListener("mouseenter", () => {
+                gridBox.style.backgroundColor = "black"
+            })
             row.appendChild(gridBox)
         }
 
