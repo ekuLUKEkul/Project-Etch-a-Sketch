@@ -1,3 +1,7 @@
+.reset-page {
+    display: flex;
+    justify-content: space-evenly;
+}
 .container {
     width: 960px;
 }

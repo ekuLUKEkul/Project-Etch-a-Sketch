@@ -1,7 +1,11 @@
 const sizeOfGrid = 16;
 const container = document.querySelector(".container")
+const resetButton = document.querySelector(".reset-page")
 
 const createGrid = (amountOfGrids) => {
+    const wrapper = document.createElement("div")
+    wrapper.classList.add("wrapper")
+
     for (let i = 0; i<amountOfGrids; i++) {
         const row = document.createElement("div")
         row.classList.add("grid-row")
@@ -19,8 +23,22 @@ const createGrid = (amountOfGrids) => {
             row.appendChild(gridBox)
         }
 
-        container.appendChild(row)
+        wrapper.appendChild(row)
     }
+    container.appendChild(wrapper)
 }
 
 createGrid(sizeOfGrid)
+
+resetButton.addEventListener("click", () => {
+    let userSize = Number(prompt("Enter dimensions for new grid"))
+
+    while (userSize > 100) {
+    userSize = Number(prompt("Enter dimensions for new grid, must be 100 or less"))
+    }
+
+    const wrapper = document.querySelector(".wrapper")
+    wrapper.remove()
+    createGrid(userSize)
+})
+
